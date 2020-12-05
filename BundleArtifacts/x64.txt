@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Nathan\OneDrive\Documents\Desktop\Spyglass Stuff\SpyglassApp_12_4_20\bin\x64\Debug\SpyglassApp_1.0.6.0_x64_Debug.msix
+SymbolPackage=C:\Users\Nathan\OneDrive\Documents\Desktop\Spyglass Stuff\SpyglassApp_12_4_20\obj\x64\Debug\Symbols\SpyglassApp_1.0.6.0_x64_Debug.appxsym
