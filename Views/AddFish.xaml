@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="SpyglassApp.Views.AddFish"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpyglassApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#03CF78" Width="1460" Height="730">
+
+    <Grid>
+        <TextBlock x:Name="SpeciesNameTextBlock" HorizontalAlignment="Left" Margin="40,30,0,0" Text="Species Name" VerticalAlignment="Top" Height="40" Width="180" FontSize="25"/>
+        <TextBox x:Name="SpeciesNameTextBox" HorizontalAlignment="Left" Margin="40,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="180"/>
+        <TextBlock x:Name="CommonNameTextBlock" HorizontalAlignment="Left" Margin="270,30,0,0" Text="Common Name" VerticalAlignment="Top" Height="40" Width="180" FontSize="25"/>
+        <TextBox x:Name="CommonNameTextBox" HorizontalAlignment="Left" Margin="270,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="180"/>
+        <ScrollViewer Margin="40,150,0,40"  HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left" Width="1005">
+            <GridView Margin="0,0,0,0" Name="SelectionGridView" SelectionMode="None" IsItemClickEnabled="True" ItemClick="SelectionGridView_ItemClick">
+                <GridView.ItemTemplate>
+                    <DataTemplate  x:DataType="local:GridTextBlockDataObject">
+                        <Grid Height="200" Width="245">
+                            <Image Source="{x:Bind FishPictures}"  Stretch="Fill"/>
+                            <StackPanel Orientation="Vertical" Height="60" VerticalAlignment="Bottom" Background="{ThemeResource SystemBaseLowColor}" Padding="12">
+                                <TextBlock Text="{x:Bind SpeciesNameText}" FontSize="15"/>
+                                <TextBlock Text="{x:Bind CommonNameText}" FontSize="15"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="4" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+        </ScrollViewer>
+        <TextBlock x:Name="FishNameTextBlock" HorizontalAlignment="Left" Margin="500,30,0,0" Text="Fish Length(cm)" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="180" FontSize="25"/>
+        <TextBox x:Name="FishLengthTextBox" InputScope ="Number" HorizontalAlignment="Left" Margin="500,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="180"/>
+        <TextBlock x:Name="FishFateTextBlock" HorizontalAlignment="Left" Margin="730,30,0,0" Text="Fate" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="100" FontSize="25"/>
+        <TextBox x:Name="FishFateTextBox" HorizontalAlignment="Left" Margin="730,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="100"/>
+        <TextBlock x:Name="Notes" HorizontalAlignment="Left" Margin="880,30,0,0" Text="Notes" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="100" FontSize="25"/>
+        <TextBox x:Name="NotesInput" HorizontalAlignment="Left" Margin="880,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="60" Width="100"/>
+        <Button Name ="AddButton" Content="Add" Margin="1050,45,0,0" VerticalAlignment="Top" Width="60" Click="AddButtonClick"/>
+        <Button Name ="CancelButton" Content="Cancel" Margin="1050,95,0,0" VerticalAlignment="Top" Width ="60" Click="CancelButtonClick"/>
+        <Button Name ="SaveButton" Content="Save" Margin="1050,145,0,0" VerticalAlignment="Top" Width ="60" Click="SaveButtonClick" Visibility="Collapsed"/>
+        <Button Name ="DeleteButton" Content="Delete" Margin="1050,195,0,0" VerticalAlignment="Top" Width ="60" Click="DeleteButtonClick" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>

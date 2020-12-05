@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="SpyglassApp.Views.TripData"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpyglassApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#FFFFF488" Width="1460" Height="730">
+    <Grid HorizontalAlignment="Left" Width="1160" Height="730" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Left" Margin="35,23,0,0" Text="Trip Data" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="50" FontWeight="Normal" />
+        <Rectangle Stroke="Black" Margin="45,150,0,0" Height="570" VerticalAlignment="Top" HorizontalAlignment="Left" Width="848"/>
+        <ScrollViewer Margin="50,150,0,10" Width="837" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left">
+            <Grid Margin="0,0,0,0" x:Name="DropTable" Height="970" VerticalAlignment="Top" HorizontalAlignment="Left" Width="820">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="470"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="TripNumber" Text="Trip Number" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40" />
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="TripNumberInput" Text="#" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="460" FontSize="40" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="Date" Text="Date" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="1" Grid.ColumnSpan="3"/>
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="DateText" Text="DD/MM/YYYY" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="460" FontSize="40" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ObserversNumber" Text="# of Observers" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="2" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="ObserversInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ObserversNames" Text="Initials of Observers" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="3" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="ObserversNamesInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="AnglersNumber" Text="# of Anglers" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="4" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="AnglersInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ObservedAnglers" Text="# of Obs Anglers" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="5" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="ObservedAnglersInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="Captain" Text="Captain" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="6" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="CaptainInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="Vessel" Text="Vessel" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="7" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="VesselInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="Port" Text="Port" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="8" Grid.ColumnSpan="8"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="PortInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionSea" Text="Condition - Sea" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="9" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionSeaInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionSky" Text="Condition - Sky" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="10" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionSkyInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionWind" Text="Condition - Wind" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="11" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionWindInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionSwell" Text="Condition - Swell" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="12" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="ConditionSwellInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="12" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="DepartureTime" Text="Departure Time" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="13" Grid.ColumnSpan="3"/>
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="DepartureTimeText" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="13" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ArrivalTime" Text="Arrival Time" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="14" Grid.ColumnSpan="3"/>
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="ArrivalTimeText" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="14" Grid.ColumnSpan="2"/>
+
+                <TextBlock Foreground ="Black" HorizontalAlignment="Left" x:Name="Notes" Text="Notes" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="350" FontSize="40"  Grid.Row="15" Grid.ColumnSpan="3"/>
+                <TextBox Foreground ="Black" HorizontalAlignment="Left" x:Name="NotesInput" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Height="60" Width="450" FontSize="40" Grid.Column="1" Grid.Row="15" Grid.ColumnSpan="2"/>
+
+            </Grid>
+        </ScrollViewer>
+        <!--<Button Content="Save" Margin="900,644,0,0" VerticalAlignment="Top" Height="69" Width="250" FontSize="50"/>-->
+        <Button Content="Start Trip" Height="100" Margin="750,20,0,0" VerticalAlignment="Top" Width="300" FontSize ="50" Click="StartTripButton_Click"/>
+        <Button Name ="Upload_Button" Content="Upload" Height="100" Margin="400,20,0,0" VerticalAlignment="Top" Width="200" FontSize ="50" Click="UploadTrip_Click" Visibility="Collapsed"/>
+
+    </Grid>
+
+
+</Page>
