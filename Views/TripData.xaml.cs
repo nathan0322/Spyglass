@@ -111,15 +111,33 @@ namespace SpyglassApp.Views
             trip.Notes = this.NotesInput.Text;
 
             // upload data to a txt file
-            //uploadToFile();
-
-            // upload data to local database
-            uploadToLocalDatabase();
+            uploadToFile();
+            displayFileSaved();
             
+            // upload data to local database
+            //uploadToLocalDatabase();
+
+
+
+        }
+        private async void displayFileSaved()
+        {
+            ContentDialog dataSaved = new ContentDialog
+            {
+                Title = "Data Saved",
+                Content = "Data successfully saved to a file in AppData Local Packages 327c9e8c-c626-4d03-835c-e41abc648bd9_31cjdsjrwwpkj LocalState",
+                PrimaryButtonText = "Close"
+            };
+
+            ContentDialogResult result = await dataSaved.ShowAsync();
+            if(result == ContentDialogResult.Primary)
+            {
+                // do nothing
+            }
         }
         private void uploadToLocalDatabase()
         {
-            SQLHandler sQLHanlder = new SQLHandler(true);
+            SQLHandler sQLHanlder = new SQLHandler(false);
             sQLHanlder.insertTrip(trip.ObserverInitials,trip.Date,"2020",trip.PortName,trip.VesselName,trip.NumberOfObservers,
                 trip.NumberOfAnglers,trip.CaptainName,trip.Condition_Sea,trip.Condition_Wind,trip.Condition_Swell,trip.Notes,
                 trip.DepartureTime,trip.ArrivalTime);
@@ -135,105 +153,65 @@ namespace SpyglassApp.Views
             }
 
         }
-
-        //private async void uploadToFile()
-        //{
-        //    StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-        //    StorageFile file = await localFolder.GetFileAsync("Spyglass_Data.txt");
-        //    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Nathan\Spyglass_Data.txt",true))
-        //    {
-        //        file.WriteLine("Trip Data\n");
-        //        file.WriteLine("Trip Number: " + trip.TripNumber.ToString());
-        //        file.WriteLine("Date: " + trip.Date);
-        //        file.WriteLine("NumberOfObservers: " + trip.NumberOfObservers);
-        //        file.WriteLine("ObserverInitials: " + trip.ObserverInitials);
-        //        file.WriteLine("NumberOfAnglers: " + trip.NumberOfAnglers);
-        //        file.WriteLine("NumberOfObserverAnglers: " + trip.NumberOfObserverAnglers);
-        //        file.WriteLine("CaptainName: " + trip.CaptainName);
-        //        file.WriteLine("VesselName: " + trip.VesselName);
-        //        file.WriteLine("PortName: " + trip.PortName);
-        //        file.WriteLine("Condition_Sea: " + trip.Condition_Sea);
-        //        file.WriteLine("Condition_Sky: " + trip.Condition_Sky);
-        //        file.WriteLine("Condition_Wind: " + trip.Condition_Wind);
-        //        file.WriteLine("Condition_Swell: " + trip.Condition_Swell);
-        //        file.WriteLine("DepartureTime: " + trip.DepartureTime);
-        //        file.WriteLine("ArrivalTime: " + trip.ArrivalTime);
-        //        file.WriteLine("Notes: " + trip.Notes + "\n");
-
-        //        file.WriteLine("Drop Data\n");
-        //        foreach (Drop drop in trip.DropsList)
-        //        {
-        //            file.WriteLine("DropNumber: " + drop.DropNumber.ToString());
-        //            file.WriteLine("ObserverFishers: " + drop.ObserverFishers);
-        //            file.WriteLine("EndGPS: " + drop.EndGPS);
-        //            file.WriteLine("Depth: " + drop.Depth);
-        //            file.WriteLine("Notes: " + drop.Notes);
-        //            file.WriteLine("TimeDown: " + drop.TimeDown);
-        //            file.WriteLine("TimeUp: " + drop.TimeUp);
-
-        //            file.WriteLine("Species Data\n");
-        //            foreach (Species species in drop.SpeciesList)
-        //            {
-        //                file.WriteLine("SpeciesName: " + species.SpeciesName);
-        //                file.WriteLine("CommonName: " + species.CommonName);
-        //                file.WriteLine("FishLength: " + species.FishLength);
-        //                file.WriteLine("FishFate: " + species.FishFate);
-        //                file.WriteLine("FishNotes: " + species.FishNotes);
-        //            }
-        //        }
-
-        //        file.Write("End of Trip " + trip.TripNumber.ToString());
-
-        //    }
-        //}
-
         private async void uploadToFile()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-         
-            StorageFile file = await localFolder.CreateFileAsync("Spyglass_Data.txt",CreationCollisionOption.OpenIfExists);
-            
-            await FileIO.WriteTextAsync(file,"Trip Data\n");
-            await FileIO.WriteTextAsync(file, "Trip Number: " + trip.TripNumber.ToString());
-            await FileIO.WriteTextAsync(file, "Date: " + trip.Date);
-            await FileIO.WriteTextAsync(file, "NumberOfObservers: " + trip.NumberOfObservers);
-            await FileIO.WriteTextAsync(file, "ObserverInitials: " + trip.ObserverInitials);
-            await FileIO.WriteTextAsync(file, "NumberOfAnglers: " + trip.NumberOfAnglers);
-            await FileIO.WriteTextAsync(file, "NumberOfObserverAnglers: " + trip.NumberOfObserverAnglers);
-            await FileIO.WriteTextAsync(file, "CaptainName: " + trip.CaptainName);
-            await FileIO.WriteTextAsync(file, "VesselName: " + trip.VesselName);
-            await FileIO.WriteTextAsync(file, "PortName: " + trip.PortName);
-            await FileIO.WriteTextAsync(file, "Condition_Sea: " + trip.Condition_Sea);
-            await FileIO.WriteTextAsync(file, "Condition_Sky: " + trip.Condition_Sky);
-            await FileIO.WriteTextAsync(file, "Condition_Wind: " + trip.Condition_Wind);
-            await FileIO.WriteTextAsync(file, "Condition_Swell: " + trip.Condition_Swell);
-            await FileIO.WriteTextAsync(file, "DepartureTime: " + trip.DepartureTime);
-            await FileIO.WriteTextAsync(file, "ArrivalTime: " + trip.ArrivalTime);
-            await FileIO.WriteTextAsync(file, "Notes: " + trip.Notes + "\n");
 
-            await FileIO.WriteTextAsync(file, "Drop Data\n");
-            foreach (Drop drop in trip.DropsList)
+            StorageFile file = await localFolder.CreateFileAsync("Spyglass_Data.txt", CreationCollisionOption.GenerateUniqueName);
+            var stream = await file.OpenAsync(FileAccessMode.ReadWrite);
+
+            using (var outputStream = stream.GetOutputStreamAt(0))
             {
-                await FileIO.WriteTextAsync(file, "DropNumber: " + drop.DropNumber.ToString());
-                await FileIO.WriteTextAsync(file, "ObserverFishers: " + drop.ObserverFishers);
-                await FileIO.WriteTextAsync(file, "EndGPS: " + drop.EndGPS);
-                await FileIO.WriteTextAsync(file, "Depth: " + drop.Depth);
-                await FileIO.WriteTextAsync(file, "Notes: " + drop.Notes);
-                await FileIO.WriteTextAsync(file, "TimeDown: " + drop.TimeDown);
-                await FileIO.WriteTextAsync(file, "TimeUp: " + drop.TimeUp);
-
-                await FileIO.WriteTextAsync(file, "Species Data\n");
-                foreach (Species species in drop.SpeciesList)
+                using (var dataWriter = new Windows.Storage.Streams.DataWriter(outputStream))
                 {
-                    await FileIO.WriteTextAsync(file, "SpeciesName: " + species.SpeciesName);
-                    await FileIO.WriteTextAsync(file, "CommonName: " + species.CommonName);
-                    await FileIO.WriteTextAsync(file, "FishLength: " + species.FishLength);
-                    await FileIO.WriteTextAsync(file, "FishFate: " + species.FishFate);
-                    await FileIO.WriteTextAsync(file, "FishNotes: " + species.FishNotes);
-                }
-            }
+                    dataWriter.WriteString("Trip Data\n\n");
+                    dataWriter.WriteString("Trip Number: " + trip.TripNumber.ToString());
+                    dataWriter.WriteString("\nDate: " + trip.Date);
+                    dataWriter.WriteString("\nNumberOfObservers: " + trip.NumberOfObservers);
+                    dataWriter.WriteString("\nObserverInitials: " + trip.ObserverInitials);
+                    dataWriter.WriteString("\nNumberOfAnglers: " + trip.NumberOfAnglers);
+                    dataWriter.WriteString("\nNumberOfObserverAnglers: " + trip.NumberOfObserverAnglers);
+                    dataWriter.WriteString("\nCaptainName: " + trip.CaptainName);
+                    dataWriter.WriteString("\nVesselName: " + trip.VesselName);
+                    dataWriter.WriteString("\nPortName: " + trip.PortName);
+                    dataWriter.WriteString("\nCondition_Sea: " + trip.Condition_Sea);
+                    dataWriter.WriteString("\nCondition_Sky: " + trip.Condition_Sky);
+                    dataWriter.WriteString("\nCondition_Wind: " + trip.Condition_Wind);
+                    dataWriter.WriteString("\nCondition_Swell: " + trip.Condition_Swell);
+                    dataWriter.WriteString("\nDepartureTime: " + trip.DepartureTime);
+                    dataWriter.WriteString("\nArrivalTime: " + trip.ArrivalTime);
+                    dataWriter.WriteString("\nNotes: " + trip.Notes + "\n");
 
-            await FileIO.WriteTextAsync(file, "End of Trip " + trip.TripNumber.ToString());            
+                    dataWriter.WriteString("\nDrop Data\n");
+                    foreach (Drop drop in trip.DropsList)
+                    {
+                        dataWriter.WriteString("DropNumber: " + drop.DropNumber.ToString());
+                        dataWriter.WriteString("\nObserverFishers: " + drop.ObserverFishers);
+                        dataWriter.WriteString("\nStart GPS: " + drop.StartGPS);
+                        dataWriter.WriteString("\nEndGPS: " + drop.EndGPS);
+                        dataWriter.WriteString("\nDepth: " + drop.Depth);
+                        dataWriter.WriteString("\nNotes: " + drop.Notes);
+                        dataWriter.WriteString("\nTimeDown: " + drop.TimeDown);
+                        dataWriter.WriteString("\nTimeUp: " + drop.TimeUp);
+
+                        dataWriter.WriteString("\nSpecies Data\n");
+                        foreach (Species species in drop.SpeciesList)
+                        {
+                            dataWriter.WriteString("\nSpeciesName: " + species.SpeciesName);
+                            dataWriter.WriteString("\nCommonName: " + species.CommonName);
+                            dataWriter.WriteString("\nFishLength: " + species.FishLength);
+                            dataWriter.WriteString("\nFishFate: " + species.FishFate);
+                            dataWriter.WriteString("\nFishNotes: " + species.FishNotes);
+                        }
+                    }
+                    dataWriter.WriteString("\nEnd of Trip " + trip.TripNumber.ToString() + "\n");
+
+                    await dataWriter.StoreAsync();
+                    await outputStream.FlushAsync();
+                }
+                stream.Dispose();
+            }
         }
+        
     }
 }
