@@ -189,7 +189,7 @@ namespace SpyglassApp.Views
             {
                 using (var dataWriter = new Windows.Storage.Streams.DataWriter(outputStream))
                 {
-                    dataWriter.WriteString("Trip Data\n\n");
+                    dataWriter.WriteString("##Trip Data##\n\n");
                     dataWriter.WriteString("Trip Number: " + trip.TripNumber.ToString());
                     dataWriter.WriteString("\nDate: " + trip.Date);
                     dataWriter.WriteString("\nNumberOfObservers: " + trip.NumberOfObservers);
@@ -207,10 +207,10 @@ namespace SpyglassApp.Views
                     dataWriter.WriteString("\nArrivalTime: " + trip.ArrivalTime);
                     dataWriter.WriteString("\nNotes: " + trip.Notes + "\n");
 
-                    dataWriter.WriteString("\nDrop Data\n");
+                    dataWriter.WriteString("\n##Drop Data##\n");
                     foreach (Drop drop in trip.DropsList)
                     {
-                        dataWriter.WriteString("DropNumber: " + drop.DropNumber.ToString());
+                        dataWriter.WriteString("\nDropNumber: " + drop.DropNumber.ToString());
                         dataWriter.WriteString("\nObserverFishers: " + drop.ObserverFishers);
                         dataWriter.WriteString("\nStart GPS: " + drop.StartGPS);
                         dataWriter.WriteString("\nEndGPS: " + drop.EndGPS);
@@ -219,14 +219,17 @@ namespace SpyglassApp.Views
                         dataWriter.WriteString("\nTimeDown: " + drop.TimeDown);
                         dataWriter.WriteString("\nTimeUp: " + drop.TimeUp);
 
-                        dataWriter.WriteString("\nSpecies Data\n");
+                        dataWriter.WriteString("\n\n##Species Data##\n\n");
+                        int i = 1;
                         foreach (Species species in drop.SpeciesList)
                         {
+                            dataWriter.WriteString("------Fish " + i.ToString() + "------");
                             dataWriter.WriteString("\nSpeciesName: " + species.SpeciesName);
                             dataWriter.WriteString("\nCommonName: " + species.CommonName);
                             dataWriter.WriteString("\nFishLength: " + species.FishLength);
                             dataWriter.WriteString("\nFishFate: " + species.FishFate);
-                            dataWriter.WriteString("\nFishNotes: " + species.FishNotes);
+                            dataWriter.WriteString("\nFishNotes: " + species.FishNotes + "\n\n");
+                            i += 1;
                         }
                     }
                     dataWriter.WriteString("\nEnd of Trip " + trip.TripNumber.ToString() + "\n");
