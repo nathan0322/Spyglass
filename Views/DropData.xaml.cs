@@ -67,7 +67,7 @@ namespace SpyglassApp.Views
 
             ContentDialogResult result = await endTripDialog.ShowAsync();
 
-            // Delete the drop if the user clicked the primary button.
+            // End the trip if the user clicked the primary button.
             // Otherwise, do nothing.
             if (result == ContentDialogResult.Primary)
             {

@@ -51,15 +51,31 @@ namespace SpyglassApp.Views
             this.DepartureTimeText.Text = shortTime;
         }
 
-        private void StartTripButton_Click(object sender, RoutedEventArgs e)
+        private async void StartTripButton_Click(object sender, RoutedEventArgs e)
         {
-            setDate();
-            getDepartureTime();
-            trip.DepartureTime = this.DepartureTimeText.Text;
-            this.TripNumberInput.Text = tripNum.ToString();
-            trip.TripNumber = tripNum;
-            tripNum += 1;
-            this.Frame.Navigate(typeof(DropData));
+            ContentDialog startTripDialog = new ContentDialog
+            {
+                Title = "Start Trip?",
+                Content = "Are you sure you want to start the trip?",
+                PrimaryButtonText = "Start Trip",
+                CloseButtonText = "Cancel"
+            };
+
+            ContentDialogResult result = await startTripDialog.ShowAsync();
+
+            // Start the trip if the user clicked the primary button.
+            // Otherwise, do nothing.
+            if (result == ContentDialogResult.Primary)
+            {
+                setDate();
+                getDepartureTime();
+                trip.DepartureTime = this.DepartureTimeText.Text;
+                this.TripNumberInput.Text = tripNum.ToString();
+                trip.TripNumber = tripNum;
+                tripNum += 1;
+                this.Frame.Navigate(typeof(DropData));
+            }
+            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -95,7 +111,7 @@ namespace SpyglassApp.Views
         }
 
         // saves all user input then upload
-        private void UploadTrip_Click(object sender, RoutedEventArgs e)
+        private async void UploadTrip_Click(object sender, RoutedEventArgs e)
         {
             trip.NumberOfObservers = this.ObserversInput.Text;
             trip.ObserverInitials = this.ObserversNamesInput.Text;
@@ -110,15 +126,24 @@ namespace SpyglassApp.Views
             trip.Condition_Swell = this.ConditionSwellInput.Text;
             trip.Notes = this.NotesInput.Text;
 
-            // upload data to a txt file
-            uploadToFile();
-            displayFileSaved();
-            
-            // upload data to local database
-            //uploadToLocalDatabase();
+            ContentDialog uploadData = new ContentDialog
+            {
+                Title = "Upload data?",
+                Content = "Save data to a file and upload to database.",
+                PrimaryButtonText = "Upload",
+                CloseButtonText = "Cancel"
+            };
 
+            ContentDialogResult result = await uploadData.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                // upload data to a txt file
+                uploadToFile();
+                displayFileSaved();
 
-
+                // upload data to local database
+                //uploadToLocalDatabase();
+            }
         }
         private async void displayFileSaved()
         {
