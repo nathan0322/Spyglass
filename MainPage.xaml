@@ -15,7 +15,7 @@
             <NavigationViewItem Content="Species Data" Tag="SpeciesData" x:Name="C" Icon="Edit" FontSize="20" FontWeight="Bold" Height="130"/>
         </NavigationView.MenuItems>
         <Frame x:Name="MainFrame" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="550" Width="550">
-            <Image HorizontalAlignment="Left" Height="400" Margin="150,150,0,0" VerticalAlignment="Top" Width="400" Source="Assets/spyglass_logo.png"/>
+            <Image HorizontalAlignment="Left" Height="400" Margin="0,0,0,0" VerticalAlignment="Top" Width="400" Source="Assets/spyglass_logo.png"/>
         </Frame>
     </NavigationView>
 </Page>

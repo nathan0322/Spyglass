@@ -10,7 +10,7 @@
   <Identity
     Name="327c9e8c-c626-4d03-835c-e41abc648bd9"
     Publisher="CN=Isaac Trotta"
-    Version="1.0.6.0" />
+    Version="1.0.13.0" />
 
   <mp:PhoneIdentity PhoneProductId="327c9e8c-c626-4d03-835c-e41abc648bd9" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -49,6 +49,8 @@
   <Capabilities>
     <Capability Name="internetClient" />
     <uap:Capability Name="removableStorage"/>
+    <rescap:Capability Name="broadFileSystemAccess"/>
+    <rescap:Capability Name ="confirmAppClose"/>
     <DeviceCapability Name="location"/>  
   </Capabilities>
 </Package>

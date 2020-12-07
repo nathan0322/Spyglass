@@ -157,27 +157,69 @@
     <None Include="SpyglassApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Fish\bay.png" />
-    <Content Include="Assets\Fish\black.png" />
-    <Content Include="Assets\Fish\blue.png" />
-    <Content Include="Assets\Fish\bocaccio.png" />
-    <Content Include="Assets\Fish\brown.png" />
-    <Content Include="Assets\Fish\calico.png" />
-    <Content Include="Assets\Fish\canary.png" />
-    <Content Include="Assets\Fish\china.png" />
-    <Content Include="Assets\Fish\copper.png" />
-    <Content Include="Assets\Fish\deacon.png" />
-    <Content Include="Assets\Fish\gopher.png" />
-    <Content Include="Assets\Fish\greenspotted.png" />
-    <Content Include="Assets\Fish\lingcod.png" />
-    <Content Include="Assets\Fish\pacsanddab.png" />
-    <Content Include="Assets\Fish\rosy.png" />
-    <Content Include="Assets\Fish\spyglass_logo.png" />
-    <Content Include="Assets\Fish\starry.png" />
-    <Content Include="Assets\Fish\treefish.png" />
-    <Content Include="Assets\Fish\vermilion.png" />
-    <Content Include="Assets\Fish\widow.png" />
-    <Content Include="Assets\Fish\yellowtail.png" />
+    <Content Include="Assets\Fish\bay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\black.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\blue.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\bocaccio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\brown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\calico.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\canary.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\china.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\copper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\deacon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\gopher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\greenspotted.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\lingcod.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\pacsanddab.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\rosy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\spyglass_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\starry.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\treefish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\vermilion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\widow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Fish\yellowtail.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\spyglass_logo.png" />
     <None Include="local-template.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

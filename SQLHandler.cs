@@ -7,7 +7,8 @@ namespace SpyglassApp.SQL
 
     public class SQLHandler
     {
-        private string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\miles\source\repos\SQL-TestApp\Observer Database_2013_backend_RELedits_be.accdb";
+        //private string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\miles\source\repos\SQL-TestApp\Observer Database_2013_backend_RELedits_be.accdb";
+        private string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\Nathan\OneDrive\Documents\Desktop\Spyglass Stuff\SpyglassApp_12_4_20\Observer Database_2013_backend_RELedits_be.accdb";
         private OleDbConnection dbConnection;
         private Int32 tripID;
         private Int32 dropID;

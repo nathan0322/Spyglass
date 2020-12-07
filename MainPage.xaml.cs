@@ -27,6 +27,30 @@ namespace SpyglassApp
             this.InitializeComponent();
             this.MainFrame.Height = this.Height;
             this.MainFrame.Width = this.Width;
+
+            Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
+            async (sender, args) =>
+            {
+                args.Handled = true;
+
+                ContentDialog closeApp = new ContentDialog
+                {
+                    Title = "Close Spyglass?",
+                    Content = "All data for this trip will be lost.",
+                    PrimaryButtonText = "Close App",
+                    CloseButtonText = "Cancel"
+                };
+
+                ContentDialogResult result = await closeApp.ShowAsync();
+                if (result == ContentDialogResult.Primary)
+                {
+                    App.Current.Exit();
+                }
+                else
+                {
+                    // do nothing  
+                }
+            };
         }
 
         // Width with navView out = 1160 
